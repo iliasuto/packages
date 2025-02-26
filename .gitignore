@@ -10,4 +10,5 @@
 
 # 不忽略需要的文件
 !/.gitignore
+!/LICENSE
 !PKGBUILD
