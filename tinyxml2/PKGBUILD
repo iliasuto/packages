@@ -1,8 +1,9 @@
 # Maintainer: Keunlas <https://github.com/keunlas>
-pkgname=tinyxml2
+pkgname=tinyxml2-k
+pkgname1=tinyxml2
 pkgver=11.0.0
 pkgrel=1
-pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other programs."
+pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other."
 arch=('any')
 url="https://github.com/leethomason/tinyxml2"
 license=('Zlib')
@@ -12,12 +13,12 @@ source=('source.tar.gz::https://github.com/leethomason/tinyxml2/archive/refs/tag
 md5sums=('SKIP')
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd "$srcdir/$pkgname1-$pkgver"
   cmake -B build
   cmake --build build --config Release
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd "$srcdir/$pkgname1-$pkgver"
   cmake --install build --prefix $pkgdir/usr/local
 }
