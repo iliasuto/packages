@@ -2,7 +2,7 @@
 pkgname=tinyxml2-k
 pkgname1=tinyxml2
 pkgver=11.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other."
 arch=('any')
 url="https://github.com/leethomason/tinyxml2"
@@ -12,13 +12,17 @@ conflicts=('tinyxml2' 'tinyxml2-git')
 source=('source.tar.gz::https://github.com/leethomason/tinyxml2/archive/refs/tags/11.0.0.zip')
 md5sums=('SKIP')
 
+check() {
+  cd "$srcdir/$pkgname1-$pkgver"
+  make check
+}
+
 build() {
   cd "$srcdir/$pkgname1-$pkgver"
-  cmake -B build
-  cmake --build build --config Release
+  make staticlib
 }
 
 package() {
   cd "$srcdir/$pkgname1-$pkgver"
-  cmake --install build --prefix $pkgdir/usr/local
+  make install prefix=$pkgdir/usr/local
 }
