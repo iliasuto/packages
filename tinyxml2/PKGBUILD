@@ -2,7 +2,7 @@
 pkgname=tinyxml2-k
 pkgname1=tinyxml2
 pkgver=11.0.0
-pkgrel=2
+pkgrel=4
 pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other."
 arch=('any')
 url="https://github.com/leethomason/tinyxml2"
