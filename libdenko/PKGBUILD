@@ -1,8 +1,7 @@
 # Maintainer: Keunlas <https://github.com/keunlas>
-pkgname=libdenko-k
-pkgname1=libdenko
+pkgname=libdenko
 pkgver=0.1.0
-pkgrel=2
+pkgrel=4
 pkgdesc="Just for Learning C++."
 arch=('any')
 url="https://github.com/iliasuto/libdenko"
@@ -12,12 +11,12 @@ source=('source.tar.gz::https://github.com/iliasuto/libdenko/archive/refs/tags/v
 md5sums=('SKIP')
 
 build() {
-  cd "$srcdir/$pkgname1-$pkgver"
+  cd "$srcdir/$pkgname-$pkgver"
   cmake -B build -DDENKO_BUILD_EXAMPLES=OFF
   cmake --build build --config Release
 }
 
 package() {
-  cd "$srcdir/$pkgname1-$pkgver"
+  cd "$srcdir/$pkgname-$pkgver"
   cmake --install build --prefix $pkgdir/usr/local
 }

@@ -1,0 +1,21 @@
+# Maintainer: Keunlas <https://github.com/keunlas>
+pkgname=wfrest_and_workflow
+pkgver=1.0.0
+pkgrel=6
+pkgdesc="wfrest-0.9.7 and workflow-0.11.9, build by keunlas, packaged by keunlas. Used for test my code."
+arch=('any')
+license=('Apache')
+makedepends=('tar' 'gzip')
+source=('packages.tar.gz')
+md5sums=('49b03b66df12e26845e6b93a581073f5')
+
+build() {
+  cd "$srcdir"
+  tar -zxvf packages.tar.gz
+}
+
+package() {
+  cd "$srcdir"
+  mkdir -p $pkgdir/usr
+  sudo cp -r ./packages/* $pkgdir/usr
+}
