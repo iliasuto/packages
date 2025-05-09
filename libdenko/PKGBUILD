@@ -1,22 +1,20 @@
 # Maintainer: Keunlas <https://github.com/keunlas>
 pkgname=libdenko
 pkgver=0.1.0
-pkgrel=4
-pkgdesc="Just for Learning C++."
+pkgrel=5
+pkgdesc="Just for Learning C++. Packaged by Keunlas."
 arch=('any')
 url="https://github.com/iliasuto/libdenko"
 license=('MIT')
 makedepends=('cmake')
-source=('source.tar.gz::https://github.com/iliasuto/libdenko/archive/refs/tags/v0.1.0.tar.gz')
+source=("$pkgname-$pkgver.source.tar.gz::https://github.com/iliasuto/$pkgname/archive/refs/tags/v$pkgver.tar.gz")
 md5sums=('SKIP')
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
-  cmake -B build -DDENKO_BUILD_EXAMPLES=OFF
-  cmake --build build --config Release
+  cmake -S "$pkgname-$pkgver" -B build -DDENKO_BUILD_EXAMPLES=OFF
+  cmake --build build --config MinSizeRel
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-  cmake --install build --prefix $pkgdir/usr/local
+  sudo cmake --install build --prefix $pkgdir/usr/
 }

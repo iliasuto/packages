@@ -1,14 +1,14 @@
 # Maintainer: Keunlas <https://github.com/keunlas>
 pkgname=tinyxml2
 pkgver=11.0.0
-pkgrel=4
-pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other. Build and packaged by Keunlas."
+pkgrel=5
+pkgdesc="TinyXML2 is a simple, small, efficient, C++ XML parser that can be easily integrated into other. Packaged by Keunlas."
 arch=('any')
 url="https://github.com/leethomason/tinyxml2"
 license=('Zlib')
 makedepends=('cmake')
 conflicts=('tinyxml2-git')
-source=('source.tar.gz::https://github.com/leethomason/tinyxml2/archive/refs/tags/11.0.0.zip')
+source=("$pkgname-$pkgver.source.tar.gz::https://github.com/leethomason/$pkgname/archive/refs/tags/$pkgver.zip")
 md5sums=('SKIP')
 
 check() {

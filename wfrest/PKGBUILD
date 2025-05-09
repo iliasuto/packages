@@ -1,0 +1,21 @@
+# Maintainer: Keunlas <https://github.com/keunlas>
+pkgname=wfrest
+pkgver=0.9.8
+pkgrel=2
+pkgdesc="C++ Web Framework REST API . Packaged by Keunlas."
+arch=('any')
+url="https://github.com/sogou/workflow"
+license=('Apache-2.0' 'GPL-2.0')
+depends=('workflow')
+makedepends=('cmake' 'workflow')
+source=("$pkgname-$pkgver.source.tar.gz::https://github.com/wfrest/$pkgname/archive/refs/tags/v$pkgver.tar.gz")
+md5sums=('SKIP')
+
+build() {
+  cmake -S $pkgname-$pkgver -B build
+  cmake --build build --config MinSizeRel
+}
+
+package() {
+  sudo cmake --install build --prefix $pkgdir/usr/
+}

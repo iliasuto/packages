@@ -1,0 +1,22 @@
+# Maintainer: Keunlas <https://github.com/keunlas>
+pkgname=workflow
+pkgver=0.11.8
+pkgrel=2
+pkgdesc="C++ Parallel Computing and Asynchronous Networking Framework. Packaged by Keunlas."
+arch=('any')
+url="https://github.com/sogou/workflow"
+license=('Apache-2.0' 'GPL-2.0')
+makedepends=('cmake')
+source=("$pkgname-$pkgver.source.tar.gz::https://github.com/sogou/$pkgname/archive/refs/tags/v$pkgver.tar.gz")
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir"
+  cmake -S $pkgname-$pkgver -B build
+  cmake --build build --config MinSizeRel
+}
+
+package() {
+  cd "$srcdir"
+  sudo cmake --install build --prefix $pkgdir/usr/
+}

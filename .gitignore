@@ -12,5 +12,6 @@
 !/.gitignore
 !/LICENSE
 !PKGBUILD
+!*.patch
 
 !/wfrest_and_workflow/packages.tar.gz
