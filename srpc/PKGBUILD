@@ -1,0 +1,22 @@
+# Maintainer: Keunlas <https://github.com/keunlas>
+pkgname=srpc
+pkgver=0.10.3
+pkgrel=1
+pkgdesc="RPC framework based on C++ Workflow. Supports SRPC, Baidu bRPC, Tencent tRPC, thrift protocols. Packaged by Keunlas."
+arch=('any')
+url="https://github.com/sogou/srpc"
+license=('Apache-2.0')
+depends=('workflow' 'snappy' 'lz4' 'protobuf')
+makedepends=('cmake' 'workflow' 'snappy' 'lz4' 'protobuf')
+optdepends=()
+source=("srpc-v0.10.3.source.tar.gz")
+md5sums=('8829cdd938233ee7fa24cb619860dfb9')
+
+build() {
+  cmake -S "$pkgname-$pkgver" -B build
+  cmake --build build --config MinSizeRel
+}
+
+package() {
+  sudo cmake --install build --prefix $pkgdir/usr/
+}

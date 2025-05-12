@@ -14,4 +14,4 @@
 !PKGBUILD
 !*.patch
 
-!/wfrest_and_workflow/packages.tar.gz
+!/srpc/srpc-v0.10.3.source.tar.gz
